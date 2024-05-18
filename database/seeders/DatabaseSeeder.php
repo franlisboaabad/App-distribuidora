@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
 
         Invitado::factory()->count(30)->create();
         User::factory()->count(10)->create();
-        Cliente::factory()->count(10)->create();
+        // Cliente::factory()->count(10)->create();
         TipoEquipo::factory()->count(10)->create();
         Artista::factory()->count(10)->create();
     }

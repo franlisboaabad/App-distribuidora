@@ -22,7 +22,7 @@
             <table class="table" id="table-clientes">
                 <thead>
                     <th>#</th>
-                    <th>Empresa</th>
+                    <th>Tienda</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>Dni</th>
@@ -36,7 +36,7 @@
                     @foreach ($clientes as $cliente)
                         <tr>
                             <td>{{ $cliente->id }}</td>
-                            <td>{{ $cliente->nombre_empresa }}</td>
+                            <td>{{ $cliente->nombre_tienda }}</td>
                             <td>{{ $cliente->nombre }}</td>
                             <td>{{ $cliente->apellidos }}</td>
                             <td>{{ $cliente->dni }}</td>
@@ -44,14 +44,18 @@
                             <td>{{ $cliente->email }}</td>
                             <td>{{ $cliente->direccion }}</td>
                             <td>
-                                @if ($cliente->autoriza)
-                                    <span class="badge badge-success">Autorizado</span>
+                                @if ($cliente->estado)
+                                    <span class="badge badge-success">Activo</span>
                                 @else
-                                    <span class="badge badge-danger">No autorizado</span>
+                                    <span class="badge badge-danger">Inactivo</span>
                                 @endif
                             </td>
                             <td>
                                 <form action="" method="POST">
+
+                                    @can('admin.clientes.show')
+                                        <a href="{{ route('clientes.show', $cliente) }}" class="btn btn-warning btn-xs">Ver</a>
+                                    @endcan
 
                                     @can('admin.clientes.edit')
                                         <a href="{{ route('clientes.edit', $cliente) }}" class="btn btn-xs btn-info">Editar</a>

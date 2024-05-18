@@ -52,13 +52,13 @@ class ClienteController extends Controller
 
         // Validación
         $validator = Validator::make($request->all(), [
-            'nombre_empresa' => 'required',
             'nombre' => 'required',
             'apellidos' => 'required',
             'dni' => 'required|unique:clientes,dni',
             'celular' => 'required',
             'email' => 'required|email|unique:clientes,email',
             'direccion' => 'required',
+            'nombre_tienda' => 'required',
         ]);
 
         if ($validator->fails()) {

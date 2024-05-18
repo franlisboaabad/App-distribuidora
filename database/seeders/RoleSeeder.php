@@ -50,6 +50,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.clientes.index', 'description' => 'Lista de clientes'])->syncRoles($RoleAdmin);
         Permission::create(['name' => 'admin.clientes.create', 'description' => 'Registrar cliente'])->syncRoles($RoleAdmin);
         Permission::create(['name' => 'admin.clientes.edit', 'description' => 'Editar cliente'])->syncRoles($RoleAdmin);
+        Permission::create(['name' => 'admin.clientes.show', 'description' => 'Ver cliente'])->syncRoles($RoleAdmin);
         Permission::create(['name' => 'admin.clientes.destroy', 'description' => 'Eliminar cliente'])->syncRoles($RoleAdmin);
 
 
